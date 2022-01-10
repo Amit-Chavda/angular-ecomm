@@ -1,0 +1,52 @@
+<button mat-flat-button (click)="closeDialog()" class="close-btn">
+    <mat-icon aria-hidden="false">close</mat-icon>
+</button>
+
+<div mat-dialog-content>
+
+    <form (ngSubmit)="onSubmitClick(product_details)" #product_details="ngForm">
+        <mat-form-field class="form-group">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" minlength="3" #name="ngModel" [(ngModel)]="product.name" required placeholder="Enter name">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select name="category" [(ngModel)]="product.category.category" required>
+                <mat-option *ngFor="let category of categories" [value]="category.category" (click)="categoryChanged(category)">
+                    {{category.category}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="form-group">
+            <mat-label>Description</mat-label>
+            <textarea matInput name="description" minlength="3" #description="ngModel" [(ngModel)]="product.description" required placeholder="Write description"></textarea>
+        </mat-form-field>
+
+
+        <br>
+        <mat-form-field class="form-group">
+            <mat-label>Price</mat-label>
+            <input type="number" matInput name="price" #price="ngModel" [(ngModel)]="product.price" required placeholder="Price">
+            <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form-group">
+            <mat-label>Quantity</mat-label>
+            <input type="number" matInput name="qty" #gty="ngModel" [(ngModel)]="product.qty" required placeholder="Available Stock">
+        </mat-form-field>
+
+        <br>
+
+        <mat-label>Upload image*</mat-label><br>
+        <input type="file" accept="image/*" class="form-control" (change)="onFileSelected($event)" #fileUpload required>
+
+        <button mat-raised-button class="mat-elevation-z2" [disabled]="!product_details.valid" class="submit-btn" cdkFocusInitial>Save</button>
+    </form>
+</div>

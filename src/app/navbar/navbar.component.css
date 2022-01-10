@@ -1,0 +1,54 @@
+/* blackHaze="#ECEFEF";
+    torquoise="#28CCD0";
+    matisse="#2255A4";
+    easternBlue="#208CB5";
+    bigStone="#142234"; */
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mat-raised-button {
+    margin-left: 1em;
+}
+
+mat-badge-medium.mat-badge-above .mat-badge-content {
+    top: unset;
+    right: unset;
+}
+
+.toolbar {
+    background-color: #142234;
+    color: white;
+}
+
+.mat-icon-button {
+    margin: 1em;
+}
+
+.search-btn {
+    color: #142234;
+    background-color: white;
+    height: 2.3em;
+    font-size: 0.7em;
+    margin-left: 1em;
+}
+
+.search-icon {
+    font-size: 1.6em;
+    margin-right: 0.5em;
+    color: white;
+    margin-top: 0.3em;
+}
+
+.search-field {
+    margin-left: 9em;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+    width: 20em;
+    font-size: 0.7em;
+    color: black;
+    background-color: white;
+    padding-left: 1em;
+}

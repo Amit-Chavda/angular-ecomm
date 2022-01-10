@@ -1,0 +1,56 @@
+<!-- <div class="mat-elevation-z2 category-header">
+    <mat-toolbar class="category-text">
+        <button class="add-btn" mat-flat-button (click)="openAddDialog()">
+            Add
+        </button>
+
+        <span matPrefix>
+            <mat-icon class="search-icon">search</mat-icon>
+        </span>
+
+
+        <input type="text" class="search-field" matInput placeholder="Search">
+    </mat-toolbar>
+</div> -->
+
+<div layout="column" class="grid-container">
+    <mat-grid-list gutterSize="1em" layout="row" cols="4" rowHeight="33em">
+        <mat-grid-tile *ngFor="let product of products">
+
+            <mat-card class="example-card mat-elevation-z3">
+
+                <div class="product-picture-div" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,' + product.image.image + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat' }">
+                    <!-- <img mat-card-image src="data:image/jpeg;base64,{{ product.image.image }}" class="product-image" alt="product picture" /> -->
+                </div>
+
+                <mat-card-title>{{product.name}}</mat-card-title>
+                <mat-card-content>
+                    <div class="text ellipsis">
+                        <span class="text-concat">
+                            {{product.description}}
+                        </span>
+                    </div>
+                    <br>
+                    <span><b>Price:</b> $&nbsp;{{product.price}}</span> <br>
+
+                    <span><b>Category:</b> {{product.category.category}}</span><br>
+
+                    <span><b>Instock Qty:</b> {{product.qty}}</span>
+                </mat-card-content>
+
+
+                <mat-card-actions>
+                    <button mat-icon-button class="delete-btn" (click)="onDelete(product.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+
+                    <button mat-icon-button class="edit-btn" (click)="onEdit(product.id)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

@@ -1,0 +1,45 @@
+.mat-form-field {
+    width: 100%;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.mat-raised-button {
+    display: inline-block;
+    width: 100%;
+    background-color: #3f51b5;
+    color: white;
+    letter-spacing: 0.01em
+}
+
+.submit-btn {
+    color: white;
+    background-color: rgba(0, 0, 255, 0.7);
+    margin-top: 1em;
+}
+
+.submit-btn:disabled {
+    background-color: #b5b7c9;
+}
+
+.login-link {
+    font-weight: 500;
+    text-align: center;
+    padding-left: 12em;
+    margin-top: 1em;
+}
+
+.login-link p a {
+    color: red;
+    cursor: pointer;
+}
+
+.login-link p a:hover {
+    color: blue;
+}
+
+.cancel-btn {
+    margin-left: 42em;
+    border: none;
+    background-color: white;
+}

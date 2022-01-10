@@ -1,0 +1,24 @@
+<div class="logout-link-container">
+    <a class="logout-link" href="">Logout</a>
+</div>
+<mat-toolbar class="mat-elevation-z2" style="height: 4em">
+    <a>
+        <mat-icon style="font-size: 4em; display: inline-block; margin-right: 1em">two_wheeler</mat-icon>
+    </a>
+
+    <label>Manage: &nbsp;&nbsp;&nbsp;</label>
+    <select (click)="onValueChange(manageItem.value)" #manageItem ngModel="manageItem" ngModel [(ngModel)]="manage">
+    <option value="Users" selected>Users</option>
+    <option value="Products">Products</option>
+  </select>
+
+    <input type="text" class="search-field" matInput placeholder="Search" (keyup)="onTextChanged()" [(ngModel)]="searchString" />
+    <button *ngIf="searchString" matSuffix mat-icon-button aria-label="Clear" (click)="searchString = ''">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <div class="spacer"></div>
+    <a mat-icon-button (click)="openAddDialog()" style="background-color: #ecefef">
+        <mat-icon style="font-size: 1.5em; color: #142234; font-weight: 800">add</mat-icon>
+    </a>
+</mat-toolbar>

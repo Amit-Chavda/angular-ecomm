@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Admin login </h1>
+<div mat-dialog-content>
+    <form (ngSubmit)="onLogin(loginData.value)" #loginData="ngForm">
+       
+        <mat-form-field class="form-group" appearance="fill">
+            <mat-label>Email address</mat-label>
+            <input matInput placeholder="Enter email address" name="emailId" minlength="3" #emailId="ngModel" ngModel required>
+            <mat-error mat-display-2 class="text-danger" *ngIf="emailId.touched && emailId.invalid">
+                <p *ngIf="emailId.invalid">Email is required!</p>
+                <p *ngIf="emailId.errors?.minlength">Email length is too short!</p>
+            </mat-error>
+        </mat-form-field>
+        <!-- <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched">Email is required</small>
+        <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+            <p *ngIf="emailId.invalid">Email is required!</p>
+            <p *ngIf="emailId.errors?.minlength">Email length is too short!</p>
+        </div> -->
+        <br>
+        <mat-form-field class="form-group">
+            <mat-label>Password</mat-label>
+            <input matInput ngModel placeholder="Enter password" [type]="hide ? 'password' : 'text'" name="password"
+                minlenght="8" #password="ngModel" type="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+            <mat-error mat-display-2 class="text-danger" *ngIf="password.touched && password.invalid">
+                <p *ngIf="password.invalid">Password is required!</p>
+                <p *ngIf="password.errors?.minlength">Password length is too short!</p>
+            </mat-error>
+        </mat-form-field>
+        
+<!--         
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            <p *ngIf="password.invalid">Password is required!</p>
+            <p *ngIf="password.errors?.minlength">Password length is too short(At least 8 characters)!</p>
+        </div> -->
+
+        <div class="alert alert-danger alert-dismissible" *ngIf="errorMsg!=''">
+            {{errorMsg}}
+        </div>
+        <button mat-raised-button class="mat-elevation-z2 submit-btn" [disabled]="!loginData.valid" class="submit-btn" cdkFocusInitial>Submit</button>
+    </form>
+</div>

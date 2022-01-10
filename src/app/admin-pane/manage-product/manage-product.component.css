@@ -1,0 +1,78 @@
+/*  blackHaze="#ECEFEF";
+    torquoise="#28CCD0";
+    matisse="#2255A4";
+    easternBlue="#208CB5";
+    bigStone="#142234"; */
+
+.grid-container {
+    width: 100%;
+    padding: 0em 10% 0 10%;
+}
+
+.text {
+    position: relative;
+    font-size: 14px;
+    color: black;
+    font-family: sans-serif;
+    text-align: justify;
+    /* width: 250px; Could be anything you like. */
+}
+
+.text-concat {
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    /* (Number of lines you want visible) * (line-height) */
+    line-height: 1.2em;
+    text-align: justify;
+}
+
+.example-card {
+    max-width: 450px;
+    border: 0.005em solid rgba(32, 32, 32, 0.3);
+}
+
+.search-icon {
+    font-size: 1.8em;
+    margin-left: 3em;
+    margin-right: 0.5em;
+    color: rgba(32, 32, 32, 0.8);
+    margin-top: 0.3em;
+}
+
+.add-btn {
+    margin-left: 12.5em;
+}
+
+.search-field {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+    width: 20em;
+    font-size: 0.8em;
+    padding: 0.2em;
+    background-color: white;
+    padding-left: 1em;
+}
+
+.edit-btn,
+.delete-btn {
+    background-color: #142234;
+    border-radius: 5px;
+    width: 45%;
+    margin: 0.5em;
+    color: white;
+}
+
+.edit-btn {
+    color: white;
+    background-color: #2255A4;
+}
+
+.product-picture-div {
+    width: 333px;
+    height: 180px;
+    margin: 0 -1em 10px -1em;
+}

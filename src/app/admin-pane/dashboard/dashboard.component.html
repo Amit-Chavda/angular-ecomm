@@ -1,0 +1,3 @@
+<app-actionbar (manageEvenEmitter)="onACtionChanged($event)" (searchEvenEmitter)="onSearchStringChanged($event)"></app-actionbar>
+<app-manage-user [events]="eventsSubject.asObservable()" *ngIf="action==='Users'"></app-manage-user>
+<app-manage-product [events]="eventsSubject.asObservable()" *ngIf="action==='Products'"></app-manage-product>

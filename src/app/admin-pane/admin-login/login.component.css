@@ -1,0 +1,33 @@
+.mat-form-field{
+    width: 100%;
+    margin-top: 1.5em;
+}
+.mat-raised-button{
+    display: inline-block;
+    width: 100%;
+    background-color: #3f51b5;
+    color: white;
+    letter-spacing: 0.01em;
+}
+.submit-btn{
+    color: white;
+    background-color: rgba(0,0,255,0.7);
+    margin-top: 2em;
+}
+
+.submit-btn:disabled{
+    background-color: #b5b7c9;
+}
+.register-link{
+    font-weight: 500;
+    text-align: center;
+    padding-left: 12em;
+    margin-top: 1em;
+}
+.register-link p a{
+    color:red;
+    cursor: pointer;
+}
+.register-link p a:hover{
+    color: blue;
+}

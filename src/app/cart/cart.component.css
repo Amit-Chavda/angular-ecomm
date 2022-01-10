@@ -1,0 +1,67 @@
+/* blackHaze="#ECEFEF";
+    torquoise="#28CCD0";
+    matisse="#2255A4";
+    easternBlue="#208CB5";
+    bigStone="#142234"; */
+
+.empty-card {
+    max-width: 80%;
+    margin: 2em 0 0 13em;
+}
+
+.empty-cart-picture {
+    width: 30em;
+    opacity: 1;
+}
+
+.mat-card-content {
+    text-align: center;
+}
+
+.shop-now-btn {
+    background-color: #142234;
+    color: white;
+    width: 8em;
+    padding: 0.2em;
+}
+
+.demo-table {
+    width: 100%;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+    font-weight: bold;
+}
+
+.product-picture {
+    width: 200px;
+    height: 150px;
+}
+
+.checkout-btn {
+    width: 12.7em;
+    height: 2.7em;
+    font-size: 1.2em;
+    margin: 2em 0 0 75em;
+    background-color: black;
+    color: white;
+}
+
+.action-btn {
+    padding: 0;
+}
+
+.delete-btn {
+    color: #ECEFEF;
+    background-color: #2255A4;
+}

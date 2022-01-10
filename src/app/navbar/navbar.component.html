@@ -1,0 +1,20 @@
+<mat-toolbar class="mat-elevation-z2 toolbar" style="height: 4em;">
+    <a routerLink="/home" style="margin:0;">
+        <mat-icon style="font-size: 4em;display: inline-block;color: white;">two_wheeler</mat-icon>
+    </a>
+
+
+    <input type="text" class="search-field" (keyup)="onSearchKeyChanged($event)" matInput placeholder="Search">
+
+    <button mat-button class="search-btn">Search</button>
+
+    <div class="spacer"></div>
+
+
+    <button mat-icon-button [matBadge]="cartItemCount" style="margin:0em;" matBadgeColor="warn" routerLink="/cart">
+    <mat-icon style="color: white;font-size: 2em;" aria-hidden="false">shopping_cart</mat-icon>
+  </button>
+    <button mat-icon-button (click)="logout()" *ngIf="!isLoggedIn"><mat-icon style="color: white;font-size: 2em;" class="icon-button">account_circle</mat-icon></button>
+
+    <button mat-icon-button (click)="openDialog()"><mat-icon class="icon-button">login</mat-icon></button>
+</mat-toolbar>

@@ -1,0 +1,115 @@
+<div class="mat-elevation-z2 category-header">
+    <app-navbar [cartItemCount]="cartItemCount" (searchStringChangedEventEmitter)="searchStringChanged($event)"></app-navbar>
+    <mat-toolbar class="category-section" class="FlexContainer">
+        <div class="category-div" (click)="onCategorySelected('all')">
+            <span>All</span>
+        </div>
+        <div *ngFor="let category of categories | slice: 0:9" class="category-div">
+            <span (click)="onCategorySelected(category)">{{
+        category.category
+      }}</span>
+        </div>
+    </mat-toolbar>
+</div>
+
+<div class="flex-container">
+
+
+    <div class="flex-items">
+        <mat-grid-list gutterSize="1em" layout="row" cols="4" rowHeight="33em">
+            <mat-grid-tile *ngFor="let product of products; index as indexOfElement">
+                <mat-card class="example-card mat-elevation-z3">
+                    <div class="product-picture-div" [ngStyle]="{
+              'background-image':
+                'url(data:image/jpeg;base64,' + product.image.image + ')',
+              'background-size': 'contain',
+              'background-repeat': 'no-repeat'
+            }">
+                        <!-- <img mat-card-image src="data:image/jpeg;base64,{{ product.image.image }}" class="product-image" alt="product picture" /> -->
+                    </div>
+                    <mat-card-title>{{ product.name }}</mat-card-title>
+
+                    <mat-card-content>
+                        <div class="text ellipsis">
+                            <span class="text-concat">
+                {{ product.description }}
+              </span>
+                        </div>
+                        <br />
+                        <span><b>Price:</b> $&nbsp;{{ product.price }}</span> <br />
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <div class="qua-containter">
+                            <button mat-icon-button class="qua-minus-btn" (click)="decreaseQnty(indexOfElement)">
+                <mat-icon>remove</mat-icon>
+              </button>
+
+                            <mat-form-field appearance="outline" class="input-qua-form" type="number" placeholder="Quantity">
+                                <input matInput placeholder="0" required value="{{ product.qty }}" min="1" class="input-qua" />
+                            </mat-form-field>
+
+                            <button mat-icon-button class="qua-plus-btn" (click)="increaseQnty(indexOfElement)">
+                <mat-icon>add</mat-icon>
+              </button>
+                        </div>
+                        <button mat-raised-button (click)="addToCart(product)">
+              Add to cart
+            </button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <div class="flex-items">
+
+        <mat-card>
+            <p style="font-size: 1.5em;">Filter &nbsp;
+                <mat-icon>filter_list</mat-icon>
+            </p>
+        </mat-card>
+
+        <mat-card>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Price</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-radio-group [(ngModel)]="priceFilter">
+                    <div *ngFor="let filter of priceFilterList">
+                        <mat-radio-button [value]="filter" style="margin-top:10px;">
+                            {{ filter }}&nbsp;
+                        </mat-radio-button>
+                        <br>
+                    </div>
+                </mat-radio-group>
+            </mat-expansion-panel>
+        </mat-card>
+
+
+        <mat-card>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <b>Category</b>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-radio-group [(ngModel)]="priceFilter">
+                    <div *ngFor="let filter of priceFilterList">
+                        <mat-radio-button [value]="filter" style="margin-top:10px;">
+                            {{ filter }}&nbsp;
+                        </mat-radio-button>
+                        <br>
+                    </div>
+                </mat-radio-group>
+            </mat-expansion-panel>
+        </mat-card>
+
+    </div>
+</div>
+
+<div layout="column" class="grid-container"></div>
+
+<app-footer></app-footer>

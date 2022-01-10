@@ -1,0 +1,52 @@
+/*  blackHaze="#ECEFEF";
+    torquoise="#28CCD0";
+    matisse="#2255A4";
+    easternBlue="#208CB5";
+    bigStone="#142234"; */
+
+.col-head {
+    color: #142234;
+    font-size: 1.5em;
+}
+
+.atrow:hover {
+    background-color: #ECEFEF;
+}
+
+.tab-container {
+    width: 100%;
+    height: 100%;
+    padding: 5em;
+}
+
+table {
+    width: 100%;
+}
+
+.action-btn {
+    color: white;
+}
+
+.delete-btn {
+    background-color: #142234;
+}
+
+.edit-btn {
+    background-color: #2255A4;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-form-field {
+    margin-left: 25em;
+    width: 60%;
+    font-size: 1em;
+    margin-top: 2em;
+}
+
+.search-field {
+    width: 100%;
+    margin-bottom: 0.3em;
+}

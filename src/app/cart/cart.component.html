@@ -1,0 +1,103 @@
+<app-navbar [cartItemCount]="cartItemCount"> </app-navbar>
+
+
+<mat-card class="empty-card" *ngIf="isEmpty">
+    <mat-card-title>My Cart</mat-card-title>
+    <hr style="height: 0.6em" />
+    <br />
+
+    <mat-card-content>
+        <div *ngIf="isEmpty">
+            <img src="https://media.istockphoto.com/photos/shopping-cart-icon-picture-id516014917?k=20&m=516014917&s=612x612&w=0&h=LN44yLGq8HGHunCcEA7Bi1rfEk6u-fy5WZ5pVEvTI-w=" class="empty-cart-picture" />
+            <h2>Your cart is empty!</h2>
+            <p>Add item now</p>
+            <button mat-button class="shop-now-btn" routerLink="/home">
+        SHOP NOW
+      </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="empty-card" *ngIf="!isEmpty">
+    <mat-card-title>My Cart
+        <span style="float: right; margin-right: 6em">{{ cart.totalQty }} Items</span
+    ></mat-card-title
+  >
+  <hr style="height: 0.6em" />
+  <br />
+  <mat-card-content>
+    <div>
+      <table class="table table-hover" style="text-align: left">
+        <thead>
+          <tr>
+            <th scope="col" *ngFor="let col of cols">{{ col }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr
+          *ngFor="let product of products; let index = index"
+          style="font-size: 15px"
+        >
+          <td>
+            <img
+              src="data:image/jpeg;base64,{{ product.image.image }}"
+              class="product-picture"
+            />
+          </td>
+          <td>
+            <p style="font-size: 2em">{{ product.name }}</p>
+            <br /><br />
+            {{ product.description }}
+          </td>
+          <td>{{ product.qty }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.qty * product.price }}</td>
+          <td>
+           
+            <button mat-flat-button class="action-btn delete-btn" (click)="removeItem(index)">
+              <mat-icon aria-hidden="false">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="empty-card" *ngIf="!isEmpty">
+  <mat-card-title>Order summery</mat-card-title>
+  <hr style="height: 0.6em" />
+  <br />
+  <mat-card-content>
+    <table class="table table-hover" style="text-align: left">
+      <thead>
+        <tr style="font-size: 15px">
+          <td>Price ({{ cart.totalQty }} items)</td>
+          <td>$. {{ cart.totalPrice }}</td>
+        </tr>
+        <tr style="font-size: 15px">
+          <td>Discount</td>
+
+          <td>$. 00.00</td>
+        </tr>
+
+        <tr style="font-size: 15px; border-bottom: 2px solid black">
+          <td>Delivery Charges</td>
+
+          <td>Free</td>
+          <br />
+        </tr>
+
+        <tr style="font-size: 20px; font-weight: 500">
+          <td>Total Amount</td>
+
+          <td>$. {{ cart.totalPrice }}</td>
+        </tr>
+      </thead>
+    </table>
+
+    <button mat-button class="checkout-btn">Checkout</button>
+  </mat-card-content>
+</mat-card>
+<br />
+<br />

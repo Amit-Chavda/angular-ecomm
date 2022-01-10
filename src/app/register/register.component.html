@@ -1,0 +1,100 @@
+<h1 mat-dialog-title>Register </h1>
+<div mat-dialog-content>
+
+    <form (ngSubmit)="onRegisterUser(registerData.value)" #registerData="ngForm">
+        <mat-form-field class="form-group">
+            <mat-label>First name</mat-label>
+            <input matInput name="firstName" minlength="3" #firstName="ngModel" ngModel required placeholder="Enter firstname">
+            <mat-error mat-display-2 class="text-danger" *ngIf="firstName.touched && firstName.invalid">
+                <p *ngIf="firstName.invalid">First name is required</p>
+                <p *ngIf="firstName.errors?.minlength">First name length is too short</p>
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+            <p *ngIf="firstName.invalid">firstName is required!</p>
+            <p *ngIf="firstName.errors?.minlength">firstName length is too short!</p>
+        </div> -->
+
+        <br>
+
+        <mat-form-field class="form-group">
+            <mat-label>Last name</mat-label>
+            <input matInput name="lastName" minlength="3" #lastName="ngModel" ngModel required placeholder="Enter last name">
+            <mat-error mat-display-2 class="text-danger" *ngIf="lastName.touched && lastName.invalid">
+                <p *ngIf="lastName.invalid">Last name is required</p>
+                <p *ngIf="lastName.errors?.minlength">Last name length is too short</p>
+            </mat-error>
+        </mat-form-field>
+        <!-- 
+        <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid">
+            <p *ngIf="lastName.invalid">Last name is required!</p>
+            <p *ngIf="lastName.errors?.minlength">Last name length is too short!</p>
+        </div> -->
+
+
+        <br>
+
+        <mat-form-field class="form-group">
+            <mat-label>Username</mat-label>
+            <input matInput name="userName" minlength="3" #userName="ngModel" ngModel required placeholder="Enter username">
+            <mat-error mat-display-2 class="text-danger" *ngIf="userName.touched && userName.invalid">
+                <p *ngIf="userName.invalid">Username is required</p>
+                <p *ngIf="userName.errors?.minlength">Username length is too short</p>
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
+            <p *ngIf="userName.invalid">Username is required!</p>
+            <p *ngIf="userName.errors?.minlength">Username length is too short!</p>
+        </div> -->
+
+
+        <br>
+
+        <mat-form-field class="form-group">
+            <mat-label>Email address</mat-label>
+            <input matInput name="emailId" minlength="3" #emailId="ngModel" ngModel required placeholder="Enter email address">
+            <mat-error mat-display-2 class="text-danger" *ngIf="emailId.touched && emailId.invalid">
+                <p *ngIf="emailId.invalid">Email address is required</p>
+                <p *ngIf="emailId.errors?.minlength">Email address length is too short</p>
+            </mat-error>
+
+        </mat-form-field>
+        <!-- 
+        <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+            <p *ngIf="emailId.invalid">Email id is required!</p>
+            <p *ngIf="emailId.errors?.minlength">Email id length is too short!</p>
+        </div> -->
+        <br>
+        <mat-form-field class="form-group">
+            <mat-label>Password</mat-label>
+            <input matInput ngModel [type]="hide ? 'password' : 'text'" name="password" minlength="8"
+                #password="ngModel" type="password" required placeholder="Create password">
+
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+            <mat-error mat-display-2 class="text-danger" *ngIf="password.touched && password.invalid">
+                <p *ngIf="password.invalid">Password is required</p>
+                <p *ngIf="password.errors?.minlength">Password length is too short</p>
+            </mat-error>
+
+        </mat-form-field>
+        <!-- <div class="alert alert-danger" *ngIf="password.touched && firstName.invalid">
+            <p *ngIf="password.invalid">Password is required!</p>
+            <p *ngIf="password.errors?.minlength">Password length is too short(At least 8 characters)!</p>
+        </div> -->
+        <div class="alert alert-danger alert-dismissible" *ngIf="errorMsg.length>5">
+            {{errorMsg}}
+        </div>
+        <button mat-raised-button class="mat-elevation-z2" [disabled]="!registerData.valid" class="submit-btn" cdkFocusInitial>Submit</button>
+    </form>
+</div>
+
+<div mat-dialog-actions class="login-link">
+    <br>
+    <p>Already have account? <a (click)="openLoginDialog()"> Login</a></p>
+</div>
